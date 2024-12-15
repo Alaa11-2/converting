@@ -1,0 +1,35 @@
+import tkinter
+import tkinter as tk
+import pyttsx3
+# variable to convert text to speech
+engine = pyttsx3.init()
+#function to play text as sound
+def  play_text():
+    text =entry.get()
+    engine.say(text)
+    engine.runAndWait()
+#function to exit from program
+def exit_program():
+     root.destroy()
+#function 
+def clear_text():
+     entry.delete(0, tk.END)
+#prepare GUI
+root=tk.Tk()
+root.title("text to speech")
+#add info
+label=tk.Label(root, text="text to speech:")
+label.pack(pady=10)
+#add square to enter text
+entry = tk.Entry(root,width=40)
+entry.pack(pady=10)
+#create button
+play_button=tk.Button(root, text="play", command=play_text, bg="green",fg="white")
+play_button.pack(pady=5)
+
+exit_button=tk.Button(root, text="Exit", command=exit_program, bg="red",fg="white")
+exit_button.pack(pady=5)
+
+clear_button=tk.Button(root, text="Set", command=clear_text, bg="blue",fg="white")
+clear_button.pack(pady=5)
+root.mainloop()
